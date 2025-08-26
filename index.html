@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Attendance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+<div id="typing" style="color: black; font-weight: 800; font-size: 23px; text-align: center; position: absolute;top: 10px;"></div>
+<div class="main-wrapper">
+  
+  <img src="logo.png" alt="" style="height: 60px;width: 150px;">
+ <marquee behavior="" direction="">
+    <h2  class="fade-slide-in" style="color: black; font-style: inherit; color: #2c3e50;" >🎯 CRM Institute: Software Training Institute in Ajmer, Rajasthan</h2>
+  </marquee>
+  <h2>📍<b>Smart Attendance</b></h2>
+  
+    <!-- Login Section -->
+    <div id="loginSection">
+      <input type="text" id="regInput" placeholder="Enter Your ID" style="width: 300px; padding: 10px; "><br><br>
+        <button onclick="saveAndProceed()" style="width: 310px; padding: 10px; background-color: #3498db; color: white;margin-top: -15px;">Login</button><br><br>
+      <!-- ✅ Create Account button with ID on <a> -->
+        <a id="createAccountWrapper" href="https://sunildhawan12.github.io/addStudents/">
+        <button style="width: 310px; padding: 10px; background-color: orange; color: white;margin-top: -15px;">
+          <i class="fas fa-user"></i> Create Account
+        </button>
+        </a>
+    </div>
+
+  <div id="attendanceSection" style="display: none;">
+    <p id="statusMsg">📡 Checking location...</p>
+     <div class="btn-row">
+        <button id="outBtn" class="out-btn" onclick="manualOut()">
+        <span class="circle red-circle"></span>OUT
+      </button>
+    </div>
+    <button style="width: 310px;" class="green-btn" onclick="showHistory()">📅 Show History</button>
+  </div>
+
+    <a href="https://sunildhawan12.github.io/Adimn-p/">
+    <button style="width: 310px; background-color: #6c5ce7;" class="orange-btn"><i class="fas fa-user"></i>🛠 Admin Panel</button>
+    </a><br>
+   
+  <div id="loaderMsg"  style="text-align:center; margin-top:10px; color: #2c3e50;"></div>
+  <div id="historyModal" style="
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+">
+  <div style="
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 95%;
+    max-width: 700px;
+    max-height: 90%;
+    overflow-y: auto;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    border: 2px solid #3498db;
+  ">
+    <h3 style="margin-bottom: 10px; color: #2c3e50; text-align: center;">📅 Attendance History</h3>
+
+<div class="date-wrapper" style="display: flex; justify-items: center; align-items: center;">
+  <label for="filterDate" style="font-weight: bold;">  DATE:</label>
+    <input style="width: 200px;" type="text" id="filterDate" placeholder="DD/MM/YYYY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📅" onfocus="changeToDate(this)"  onblur="restoreTextType(this)" onchange="renderHistoryTable(historyData)"/>
+ </div>
+
+    <div style="overflow-x: auto; width: 300px;" id="historySection" >
+      <table style="width: 100%; border-collapse: collapse; border: 1px solid rgb(243, 146, 82); font-size: 15px; border-radius: 5px;">
+        <thead>
+          <tr  style="background: #eeeb59; border: 1px solid black;">
+            <th style="padding: 7px; border: 1px solid black;">Name/Phone</th>
+            <th style="padding: 10px; border: 1px solid black;">📅Date</th>
+            <th style="padding: 10px; border: 1px solid black;">Time</th>
+            <th style="padding: 10px; border: 1px solid black;">Status</th>
+          </tr>
+        </thead>
+        <tbody style="border: 1px solid black;" id="historyTableBody"></tbody>
+      </table>
+    </div>
+
+     <button onclick="downloadHistoryPDF()">📥 Download PDF</button>
+    <button onclick="document.getElementById('historyModal').style.display='none'" style="
+      margin-top: 20px;
+      background: #e74c3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    ">Close</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,8 +1,8 @@
 // ✅ Smart Attendance System (LocalStorage-only IN restriction with OUT block & auto history)
 // ✅ Smart Attendance System (LocalStorage-only IN restriction with OUT block & auto history)
 
-const allowedLat = 26.488084632907952; 
-const allowedLng = 74.62693573674703; 
+const allowedLat = 26.48754810050057;  
+const allowedLng = 74.62693450851664; 
 const radius = 0.05;
 
 const studentMap = {
@@ -251,4 +251,5 @@ function downloadHistoryPDF() {
   };
   html2pdf().set(opt).from(element).save();
 }
+
 

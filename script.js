@@ -5,8 +5,8 @@
 
     let historyData = []; // Global variable to store fetched history
 
-    const allowedLat = 26.48754810050057;  
-    const allowedLng = 74.62693450851664; 
+    const allowedLat = 26.862855372084006;   
+    const allowedLng = 75.79534231053104; 
     const radius = 0.05; // 0.05 km = 50 meters
 
     const studentMap = {
@@ -118,11 +118,11 @@
           localStorage.setItem("lastActionDate", today);
           localStorage.setItem("firstInTime", timeStr);
 
-          statusMsg.innerHTML = `✅ Hello <b >${name}</b>, आप Library क्षेत्र के अंदर हैं!<br>✅ आपकी "🟢IN" उपस्थिति दर्ज की गई है - समय: ⏰${timeStr}`;
+          statusMsg.innerHTML = `✅ Hello <b >${name}</b>, आप Institute क्षेत्र के अंदर हैं!<br>✅ आपकी "🟢IN" उपस्थिति दर्ज की गई है - समय: ⏰${timeStr}`;
           markAttendanceSilent("IN");
           setTimeout(showHistory, 2000);
         } else {
-          statusMsg.innerHTML = `❌ आप Library क्षेत्र से बाहर हैं <b style="color: var(--danger-color)">(🧍‍♂️📏 ${dist.toFixed(2)} km)</b> आपकी IN उपस्थिति नहीं हो सकती।`;
+          statusMsg.innerHTML = `❌ आप Institute क्षेत्र से बाहर हैं <b style="color: var(--danger-color)">(🧍‍♂️📏 ${dist.toFixed(2)} km)</b> आपकी IN उपस्थिति नहीं हो सकती।`;
         }
 
       }, err => {
@@ -257,3 +257,4 @@
       };
       html2pdf().set(opt).from(element).save();
     }
+

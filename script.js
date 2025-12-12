@@ -5,9 +5,9 @@
 
     let historyData = []; // Global variable to store fetched history
 
-    const allowedLat = 26.862855372084006;   
-    const allowedLng = 75.79534231053104; 
-    const radius = 0.05; // 0.05 km = 50 meters
+    const allowedLat =  26.8914853502423;   
+    const allowedLng = 75.79150306635118; 
+    const radius = 0.50; // 0.05 km = 50 meters
 
     const studentMap = {
       "101": "Sunil Dhawan",
@@ -257,4 +257,5 @@
       };
       html2pdf().set(opt).from(element).save();
     }
+
 
